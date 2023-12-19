@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { UserModel } from '../model/usermodel';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { dataUser } from '../mock/datauser.mock';
+import { ProfileModel } from '../model/profilemodel';
 
 @Injectable({
   providedIn: 'root'
@@ -24,21 +25,22 @@ export class ProfileService {
     return dataUser;
   }
 
-  addProfile(form: FormGroup) {
+  addProfile(form: FormGroup, karyawan: ProfileModel[]) {
     if (form.valid) {
-      const newUser: UserModel = {
-        name: form.value.name,
+      const newUser: ProfileModel = {
+        id: 99,
+        first_name: form.value.first_name,
+        last_name: form.value.last_name,
         email: form.value.email,
-        birthdate: form.value.birthdate,
-        address: form.value.address
+        avatar: form.value.avatar
       };
 
-      const existingUserIndex = dataUser.findIndex(user => user.email === form.value.email);
+      const existingUserIndex = karyawan.findIndex(user => user.email === form.value.email);
 
       if (existingUserIndex > -1) {
         this.showMessage('Email sudah digunakan !');
       } else {
-        dataUser.push(newUser);
+        karyawan.push(newUser);
         this.showMessage('Berhasil menambahkan data !');
         form.reset();
       }
@@ -48,18 +50,19 @@ export class ProfileService {
     }
   }
 
-  updateProfile(form: FormGroup) {
-    const updateUser: UserModel = {
-      name: form.value.name,
+  updateProfile(form: FormGroup, karyawan: ProfileModel[]) {
+    const updateUser: ProfileModel = {
+      id: 90,
+      first_name: form.value.first_name,
+      last_name: form.value.last_name,
       email: form.value.email,
-      birthdate: form.value.birthdate,
-      address: form.value.address
+      avatar: form.value.avatar
     };
 
-    const indexToUpdate = dataUser.findIndex(user => user.email === form.value.email);
+    const indexToUpdate = karyawan.findIndex(user => user.email === form.value.email);
 
     if (indexToUpdate > -1) {
-      dataUser[indexToUpdate] = updateUser;
+      karyawan[indexToUpdate] = updateUser;
       form.reset()
       this.showMessage('Data berhasil diubah !')
     } else {

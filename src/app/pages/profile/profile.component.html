@@ -1,4 +1,4 @@
-<div *ngIf="!isUpdateRoute && !isAddRoute">
+<div>
     <h1 class="page-title">Halaman Profile</h1>
 
     <div *ngFor="let y of karyawan">
@@ -28,6 +28,7 @@
     
 </div>
 
-<app-update *ngIf="isUpdateRoute"></app-update>
-<app-add *ngIf="isAddRoute"></app-add>
+<app-update *ngIf="isAddRoute" tipe="add" [karyawan]="karyawan"></app-update>
+<app-update *ngIf="isUpdateRoute" tipe="update" [karyawan]="karyawan"></app-update>
+<!-- <app-add *ngIf="isAddRoute"></app-add> -->
 <div class="spacer"></div>

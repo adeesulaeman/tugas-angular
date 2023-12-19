@@ -4,13 +4,13 @@
     <h3>Data Kosong</h3>
 </div>
 
-<div *ngFor="let data of data">
+<!-- <div *ngFor="let data of data">
     Name: {{ data.name }} <br>
     Email: {{ data.email }} <br>
     Birthdate: {{ data.birthdate }} <br>
     Address: {{ data.address }} <br>
     <hr>
-</div>
+</div> -->
 
 <br>
 <br>
@@ -18,8 +18,14 @@
 <form [formGroup]="updateForm" (ngSubmit)="updateData(updateForm)">
     <div>
         <label>
-            Name:
-            <input formControlName="name" placeholder="Your name">
+            First Name:
+            <input formControlName="first_name" placeholder="Your name">
+        </label>
+    </div>
+    <div>
+        <label>
+            Last Name:
+            <input formControlName="last_name" placeholder="Your name">
         </label>
     </div>
     <div>
@@ -30,8 +36,8 @@
     </div>
     <div>
         <label>
-            Birthdate:
-            <input formControlName="birthdate" placeholder="Your birtdate">
+            Avatar:
+            <input formControlName="avatar" placeholder="Link Avatar">
         </label>
     </div>
     <div>
@@ -41,6 +47,6 @@
         </label>
     </div>
     <br>
-    <button type="submit">Update Data</button>
+    <button type="submit">{{ tipe === 'update' ? 'Update' : 'Tambah'}} Data</button>
 </form>
 <div class="spacer"></div>

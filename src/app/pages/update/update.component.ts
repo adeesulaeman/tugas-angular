@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProfileModel } from 'src/app/model/profilemodel';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
@@ -11,16 +12,24 @@ export class UpdateComponent {
   constructor(private pService: ProfileService) { }
 
   updateForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
+    first_name: new FormControl('', Validators.required),
+    last_name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    birthdate: new FormControl('', Validators.required),
-    address: new FormControl('', Validators.required)
+    avatar: new FormControl('', Validators.required)
   });
 
   data = this.pService.getProfile()
 
+  @Input() tipe: string = '';
+  @Input() karyawan: ProfileModel[] = [];
+
   updateData(form: FormGroup) {
-    this.pService.updateProfile(form)
+    if(this.tipe === 'update'){
+      this.pService.updateProfile(form, this.karyawan)
+    } else {
+      this.pService.addProfile(form, this.karyawan)
+    }
+    
   }
 
 }
