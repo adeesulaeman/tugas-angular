@@ -36,10 +36,12 @@ export class ProfileComponent implements OnInit {
   karwayanTerpilih: ProfileModel = new ProfileModel();
 
   ngOnInit(): void {
-
     this.pService.getProfileList().subscribe((x: any) => {
       console.log(x);
       this.karyawan = x.data;
+
+      localStorage.setItem('data-karyawan', JSON.stringify(this.karyawan));
+
     });
 
     if (this.nikKaryawan) {

@@ -26,6 +26,8 @@ export class UpdateComponent {
   @Output() selesai: EventEmitter<boolean> = new EventEmitter();
 
   updateData(form: FormGroup) {
+    const id = localStorage.getItem("id");
+    alert(id);
     if(this.tipe === 'update'){
       this.pService.updateProfile(form, this.karyawan)
     } else {
