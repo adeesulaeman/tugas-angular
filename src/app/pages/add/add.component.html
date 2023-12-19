@@ -1,0 +1,46 @@
+<h1 class="page-title">Halaman Tambah Profile</h1>
+
+<div *ngIf="data.length === 0">
+    <h3>Data Kosong</h3>
+</div>
+
+<div *ngFor="let data of data">
+    Name: {{ data.name }} <br>
+    Email: {{ data.email }} <br>
+    Birthdate: {{ data.birthdate }} <br>
+    Address: {{ data.address }} <br>
+    <hr>
+</div>
+
+<br>
+<br>
+
+<form [formGroup]="addForm" (ngSubmit)="addData(addForm)">
+    <div>
+        <label>
+            Name:
+            <input formControlName="name" placeholder="Your name">
+        </label>
+    </div>
+    <div>
+        <label>
+            Email:
+            <input formControlName="email" placeholder="Your email">
+        </label>
+    </div>
+    <div>
+        <label>
+            Birthdate:
+            <input formControlName="birthdate" placeholder="Your birtdate">
+        </label>
+    </div>
+    <div>
+        <label>
+            Address:
+            <input formControlName="address" placeholder="Your addresse">
+        </label>
+    </div>
+    <br>
+    <button type="submit">Tambah Data</button>
+</form>
+<div class="spacer"></div>

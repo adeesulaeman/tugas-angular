@@ -1,6 +1,7 @@
 export class ProfileModel {
-    nik: number = 0;
-    name: string = '';
-    job: string = '';
-    join_date: string = '';
+    id: number = 0;
+    email: string = '';
+    first_name: string = '';
+    last_name: string = '';
+    avatar: string = ''
 }

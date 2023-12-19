@@ -1,23 +1,33 @@
-<h1 class="page-title">Halaman Profile</h1>
+<div *ngIf="!isUpdateRoute && !isAddRoute">
+    <h1 class="page-title">Halaman Profile</h1>
 
-<div *ngFor="let y of karyawan">
-    NIK: {{ y.nik }} <br>
-    Name: {{ y.name }} <br>
-    Job: {{ y.job }} <br>
-    Join Date: {{ y.join_date }}
-    <hr>
+    <div *ngFor="let y of karyawan">
+        NIK: {{ y.id }} <br>
+        Name: {{ y.first_name }} <br>
+        Job: {{ y.email }} <br>
+        <hr>
+    </div>
+
+    <br>
+
+    <div *ngIf="karwayanTerpilih.id !== 0">
+        <h3> Karyawan Terpilih adalah:</h3>
+        NIK karyawan: {{ karwayanTerpilih.id }} <br>
+        Name: {{ karwayanTerpilih.first_name }} <br>
+        Job: {{ karwayanTerpilih.last_name }} <br>
+    </div>
+
+    <div *ngIf="karwayanTerpilih.id === 0">
+        <h3>Tidak ada Karyawan yang Terpilih!</h3>
+    </div>
+    
+    <button (click)="navigateToAddProfile()">Tambah Profile</button>
+    <br>
+    <br>
+    <button (click)="navigateToUpdateProfile()">Update Profile</button>
+    
 </div>
 
-<br>
-
-<div *ngIf="karwayanTerpilih.nik !== 0">
-    <h3> Karyawan Terpilih adalah:</h3>
-    NIK karyawan: {{ karwayanTerpilih.nik }} <br>
-    Name: {{ karwayanTerpilih.name }} <br>
-    Job: {{ karwayanTerpilih.job }} <br>
-    Join Date: {{ karwayanTerpilih.join_date }}
-</div>
-
-<div *ngIf="karwayanTerpilih.nik === 0">
-    <h3>Tidak ada Karyawan yang Terpilih!</h3>
-</div>
+<app-update *ngIf="isUpdateRoute"></app-update>
+<app-add *ngIf="isAddRoute"></app-add>
+<div class="spacer"></div>
