@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfileModel } from 'src/app/model/profilemodel';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -23,12 +23,16 @@ export class UpdateComponent {
   @Input() tipe: string = '';
   @Input() karyawan: ProfileModel[] = [];
 
+  @Output() selesai: EventEmitter<boolean> = new EventEmitter();
+
   updateData(form: FormGroup) {
     if(this.tipe === 'update'){
       this.pService.updateProfile(form, this.karyawan)
     } else {
       this.pService.addProfile(form, this.karyawan)
     }
+
+    this.selesai.emit(true);
     
   }
 

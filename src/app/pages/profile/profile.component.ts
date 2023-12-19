@@ -56,4 +56,11 @@ export class ProfileComponent implements OnInit {
   navigateToAddProfile() {
     this.router.navigate(['/profile/add']);
   }
+
+  onSelesai(data: boolean){
+    if(data){
+      this.isAddRoute = false;
+      this.isUpdateRoute = false;
+    }
+  }
 }

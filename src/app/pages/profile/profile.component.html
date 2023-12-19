@@ -28,7 +28,7 @@
     
 </div>
 
-<app-update *ngIf="isAddRoute" tipe="add" [karyawan]="karyawan"></app-update>
+<app-update *ngIf="isAddRoute" tipe="add" [karyawan]="karyawan" (selesai)="onSelesai($event)"></app-update>
 <app-update *ngIf="isUpdateRoute" tipe="update" [karyawan]="karyawan"></app-update>
 <!-- <app-add *ngIf="isAddRoute"></app-add> -->
 <div class="spacer"></div>
