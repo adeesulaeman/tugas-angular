@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MegaMenuModule } from 'primeng/megamenu';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
 
 
 
@@ -10,6 +11,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
   declarations: [
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
   exports: [
     HeaderComponent,
     FooterComponent,
+    SidebarComponent
   ]
 })
 export class SharedModule { }

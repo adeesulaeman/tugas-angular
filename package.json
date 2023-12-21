@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "belajar-angular-dia-ade": "^0.0.3",
     "chart.js": "^4.4.1",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",

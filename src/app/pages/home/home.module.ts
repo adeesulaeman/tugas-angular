@@ -7,6 +7,7 @@ import { MenuModule } from 'primeng/menu';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -21,7 +22,8 @@ import { ChartModule } from 'primeng/chart';
     MenuModule,
     CardModule,
     ButtonModule,
-    ChartModule
+    ChartModule,
+    SharedModule
   ],
   exports: [
     HomeComponent
